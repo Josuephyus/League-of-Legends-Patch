@@ -1,0 +1,48 @@
+const lib = require('lib')({token: process.env.STDLIB_SECRET_TOKEN});
+
+await lib.discord.channels['@0.3.0'].messages.create({
+  "channel_id": `${context.params.event.channel_id}`,
+  "content": `Champion Balance Changes`,
+  "tts": false,
+  "embeds": [
+    {
+      "type": "rich",
+      "title": `League of Legends Update 12.6`,
+      "description": "",
+      "color": 0x1aff00,
+      "fields": [
+        {
+          "name": `Azir`,
+          "value": `:Health Growth: from 92 to 105`
+        },
+        {
+          "name": `Darius`,
+          "value": `:R Minimum True Damage: from 100/200/300 (+75% bonus AD) to 125/250/375 (+75% bonus AD)`
+        },
+        {
+          "name": `Hecarim`,
+          "value": `:Q Base Damage: from 60/97/137/171/208 (+85% bonus AD) to 60/90/120/150/180 (+85% bonus AD)\n-\n:E Minimum Damage: from 30/50/70/90/110 (+55% bonus AD) to 30/45/60/75/90 (+55% bonus AD)\n:E Maximum Damage: from 60/100/140/180/220 (+110% bonus AD) to 60/90/120/150/180 (+100% bonus AD)`
+        },
+        {
+          "name": `Illaoi`,
+          "value": `:R: now follows cursor for more favorable tentacle spawns`
+        },
+        {
+          "name": `Jax`,
+          "value": `:Base Health: from 503 to 615\n:W Magic Damage: from 40/75/110/145/180 (+60% AP) to 50/85/120/155/190 (+60% AP)`
+        },
+        {
+          "name": `Nidalee`,
+          "value": `:W Mana Cost: from 40/45/50/55/60 to 30/35/40/45/50\n:E Mana Cost: from 50/60/70/80/90 to 50/55/60/65/70\n:E Cast Range: from 600 to 900 (now matches W)\n:W AOE Damage Radius: from 225 to 250`
+        },
+        {
+          "name": `Tryndamere`,
+          "value": `:E Cooldown Reduction Per Critical Strike: from 1 second (two seconds against champions) to 0.75 seconds (1.5 seconds against champions)\n:R Cooldown: from 110/100/90 to 130/110/90`
+        }
+      ],
+      "footer": {
+        "text": `*Rengar is in the Mini Rework Section of this Patch`
+      }
+    }
+  ]
+});
